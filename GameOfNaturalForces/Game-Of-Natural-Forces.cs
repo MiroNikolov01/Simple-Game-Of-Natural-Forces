@@ -47,7 +47,7 @@ namespace GameOfNaturalForces
             Console.WriteLine(result);
 
 
-            //Displaying if the number is higher then the recommended
+            
             while (true)
             {
                 Console.WriteLine();
