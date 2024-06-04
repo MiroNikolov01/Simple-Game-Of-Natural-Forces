@@ -99,7 +99,7 @@ namespace GameOfNaturalForces
             {
                 return "The Computer is drowned, You Win!";
             }
-            else if (player == Choice.Air && computer == Choice.Fire)
+             else if (player == Choice.Air && (computer == Choice.Fire || computer == Choice.Water))
             {
                 return "The Computer is blown, You Win!";
             }
