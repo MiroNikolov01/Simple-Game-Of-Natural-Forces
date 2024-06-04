@@ -107,7 +107,7 @@ namespace GameOfNaturalForces
                             Environment.Exit(0);
                         }
                     }
-                    Console.WriteLine($"Rounds left {rounds}");
+                    Console.WriteLine($"Rounds left: {rounds}");
 
                 }
                 else if (answer == "No")
