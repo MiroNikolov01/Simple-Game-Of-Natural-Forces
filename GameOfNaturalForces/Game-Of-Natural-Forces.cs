@@ -72,8 +72,8 @@ namespace GameOfNaturalForces
                 Console.WriteLine("Do you want to continue?");
                 Console.WriteLine();
                 Console.Write("Choose: Yes or No:");
-                string answer = Console.ReadLine();
-                if (answer == "Yes")
+                string answear = Console.ReadLine();
+                if (answear == "Yes")
                 {
                     Console.Write("Enter your choice: ");
                     choicePlayerInt = int.Parse(Console.ReadLine());
@@ -110,18 +110,25 @@ namespace GameOfNaturalForces
                             Console.WriteLine($"Computer lost, leaving it with {computerScore} points.");
                             Environment.Exit(0);
                         }
-                        else
+                        else if (yourScore < computerScore)
                         {
                             Console.WriteLine($"Computer is the winner with {computerScore} points.");
                             Console.WriteLine();
                             Console.WriteLine($"You lost leaving you with {yourScore} points.");
                             Environment.Exit(0);
                         }
+                        else if (yourScore == computerScore)
+                        {
+                            Console.WriteLine("It's a Tie!");
+                            Console.WriteLine($"Computer's score is: {computerScore}");
+                            Console.WriteLine($"Your score is: {yourScore}");
+                            Environment.Exit(0);
+                        }
                     }
                     Console.WriteLine($"Rounds left: {rounds}");
 
                 }
-                else if (answer == "No")
+                else if (answear == "No")
                 {
                     Console.WriteLine("That was your final battle!\nThank you for playing!");
                     Console.WriteLine($"Computer's score is: {computerScore}");
