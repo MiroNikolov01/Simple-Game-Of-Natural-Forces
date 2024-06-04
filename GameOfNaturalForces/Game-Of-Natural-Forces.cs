@@ -130,9 +130,8 @@ namespace GameOfNaturalForces
                 }
                 else if (answear == "No")
                 {
+                    Console.WriteLine("Computer Wins! You decided to leave!");
                     Console.WriteLine("That was your final battle!\nThank you for playing!");
-                    Console.WriteLine($"Computer's score is: {computerScore}");
-                    Console.WriteLine($"Your score is: {yourScore}");
                     Environment.Exit(0);
                 }
                 else
