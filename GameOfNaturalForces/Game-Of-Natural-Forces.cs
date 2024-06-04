@@ -64,6 +64,7 @@ namespace GameOfNaturalForces
                     Console.WriteLine();
                     Console.WriteLine($"Your Choice is: {choicePlayer}");
                     Console.WriteLine($"Computer's Choice is: {choiceComputer} ");
+                    result = Winner(choicePlayer, choiceComputer);
                     Console.WriteLine(result);
                 }
                 else if (answer == "No")
