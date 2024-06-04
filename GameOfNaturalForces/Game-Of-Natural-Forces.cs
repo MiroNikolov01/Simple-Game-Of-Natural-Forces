@@ -79,6 +79,11 @@ namespace GameOfNaturalForces
                     choicePlayerInt = int.Parse(Console.ReadLine());
                     choicePlayer = (Choice)choicePlayerInt;
                     choiceComputer = (Choice)random.Next(1, 4);
+                    if (choicePlayerInt > 3)
+                    {
+                        Console.WriteLine("Your choice is invalid, type a number between 1 and 3\nTry again!");
+                        Environment.Exit(0);
+                    }
                     //Collecting the points
                     if (choiceComputer > choicePlayer)
                     {
