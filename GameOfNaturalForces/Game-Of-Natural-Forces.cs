@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +29,7 @@ namespace GameOfNaturalForces
             int choicePlayerInt = int.Parse(Console.ReadLine());
             Choice choicePlayer = (Choice)choicePlayerInt;
 
+            // if number of choice is higher then the recommended
             if (choicePlayerInt > 3)
             {
                 Console.WriteLine("Your choice is invalid, type a number between 1 and 3\nTry again!");
@@ -46,8 +47,7 @@ namespace GameOfNaturalForces
             string result = Winner(choicePlayer, choiceComputer);
             Console.WriteLine(result);
 
-
-            
+            //infinite loop if you want to play again
             while (true)
             {
                 Console.WriteLine();
@@ -64,7 +64,6 @@ namespace GameOfNaturalForces
                     Console.WriteLine();
                     Console.WriteLine($"Your Choice is: {choicePlayer}");
                     Console.WriteLine($"Computer's Choice is: {choiceComputer} ");
-                    result = Winner(choicePlayer, choiceComputer);
                     Console.WriteLine(result);
                 }
                 else if (answer == "No")
@@ -74,7 +73,7 @@ namespace GameOfNaturalForces
                 }
                 else
                 {
-                    Console.WriteLine("Unknown answer");
+                    Console.WriteLine("Unknown answear!");
                     Environment.Exit(0);
                 }
             }
