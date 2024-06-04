@@ -25,9 +25,12 @@ namespace GameOfNaturalForces
             Console.WriteLine("Choices: 1 for Water, 2 for Fire, 3 for Air:");
             Console.WriteLine();
             Console.Write("Enter your choice: ");
+
+            //Starting score/rounds
             int rounds = 6;
             int yourScore = 0;
             int computerScore = 0;
+
             //Player's Choice
             int choicePlayerInt = int.Parse(Console.ReadLine());
             Choice choicePlayer = (Choice)choicePlayerInt;
@@ -41,6 +44,7 @@ namespace GameOfNaturalForces
             //Computer's Choice
             Random random = new Random();
             Choice choiceComputer = (Choice)random.Next(1, 4);
+
             //Collecting the points
             if (choiceComputer > choicePlayer)
             {
@@ -90,6 +94,8 @@ namespace GameOfNaturalForces
                     Console.WriteLine($"Computer's Choice is: {choiceComputer} ");
                     result = Winner(choicePlayer, choiceComputer);
                     Console.WriteLine(result);
+
+                    //Displaying the winner
                     if (rounds == 0)
                     {
                         if (yourScore > computerScore)
