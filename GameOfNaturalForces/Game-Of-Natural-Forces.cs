@@ -59,7 +59,7 @@ namespace GameOfNaturalForces
             string result = Winner(choicePlayer, choiceComputer);
             Console.WriteLine(result);
             Console.WriteLine();
-            Console.WriteLine($"Rounds left {rounds}");
+            Console.WriteLine($"Rounds left: {rounds}");
 
             //infinite loop if you want to play again
             while (true)
@@ -96,14 +96,14 @@ namespace GameOfNaturalForces
                         {
                             Console.WriteLine($"You are the winner with {yourScore} points.");
                             Console.WriteLine();
-                            Console.WriteLine($"Computer lost with {yourScore - computerScore} points.");
+                            Console.WriteLine($"Computer lost, leaving it with {computerScore} points.");
                             Environment.Exit(0);
                         }
                         else
                         {
                             Console.WriteLine($"Computer is the winner with {computerScore} points.");
                             Console.WriteLine();
-                            Console.WriteLine($"You lost with {computerScore - yourScore} points.");
+                            Console.WriteLine($"You lost leaving you with {yourScore} points.");
                             Environment.Exit(0);
                         }
                     }
