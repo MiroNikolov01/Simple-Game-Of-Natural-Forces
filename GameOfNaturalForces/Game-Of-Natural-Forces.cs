@@ -123,6 +123,8 @@ namespace GameOfNaturalForces
                     //Displaying the winner
                     if (rounds == 0)
                     {
+                        Console.WriteLine("Game has finsihed!");
+                        Console.WriteLine();
                         if (yourScore > computerScore)
                         {
                             Console.WriteLine($"You are the winner with {yourScore} points.");
