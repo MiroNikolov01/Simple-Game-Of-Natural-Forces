@@ -46,14 +46,24 @@ namespace GameOfNaturalForces
             Choice choiceComputer = (Choice)random.Next(1, 4);
 
             //Collecting the points
-            if (choiceComputer > choicePlayer)
-            {
-                computerScore += 1;
-            }
-            else if (choicePlayer > choiceComputer)
-            {
-                yourScore += 1;
-            }
+           if ((choiceComputer == Choice.Air && 
+                        choicePlayer == Choice.Fire) ||
+                        (choiceComputer == Choice.Water && 
+                        choicePlayer == Choice.Fire) ||
+                        (choicePlayer == Choice.Water &&
+                            choiceComputer == Choice.Air))
+                    {
+                        computerScore += 1;
+                    }
+                    if ((choicePlayer == Choice.Air &&
+                        choiceComputer == Choice.Fire) ||
+                        (choicePlayer == Choice.Water &&
+                        choiceComputer == Choice.Fire) ||
+                            (choicePlayer == Choice.Air && 
+                            choiceComputer == Choice.Water))
+                    {
+                        yourScore += 1;
+                    }
             rounds -= 1;
             //Displaying Choices
             Console.WriteLine($"Your Choice is: {choicePlayer}");
@@ -85,11 +95,21 @@ namespace GameOfNaturalForces
                         Environment.Exit(0);
                     }
                     //Collecting the points
-                    if (choiceComputer > choicePlayer)
+                    if ((choiceComputer == Choice.Air && 
+                        choicePlayer == Choice.Fire) ||
+                        (choiceComputer == Choice.Water && 
+                        choicePlayer == Choice.Fire) ||
+                        (choicePlayer == Choice.Water &&
+                            choiceComputer == Choice.Air))
                     {
                         computerScore += 1;
                     }
-                    else if (choicePlayer > choiceComputer)
+                    if ((choicePlayer == Choice.Air &&
+                        choiceComputer == Choice.Fire) ||
+                        (choicePlayer == Choice.Water &&
+                        choiceComputer == Choice.Fire) ||
+                            (choicePlayer == Choice.Air && 
+                            choiceComputer == Choice.Water))
                     {
                         yourScore += 1;
                     }
