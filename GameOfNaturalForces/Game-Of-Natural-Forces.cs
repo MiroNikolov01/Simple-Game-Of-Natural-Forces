@@ -20,11 +20,14 @@ namespace GameOfNaturalForces
             Console.WriteLine("Welcome to my game of Natural Forces!");
             Console.WriteLine();
             Console.WriteLine("Your mission is to choose one natural force and try to beat the computer, good luck!");
+            Console.WriteLine("You have 6 rounds");
             Console.WriteLine();
             Console.WriteLine("Choices: 1 for Water, 2 for Fire, 3 for Air:");
             Console.WriteLine();
             Console.Write("Enter your choice: ");
-
+            int rounds = 6;
+            int yourScore = 0;
+            int computerScore = 0;
             //Player's Choice
             int choicePlayerInt = int.Parse(Console.ReadLine());
             Choice choicePlayer = (Choice)choicePlayerInt;
@@ -38,7 +41,16 @@ namespace GameOfNaturalForces
             //Computer's Choice
             Random random = new Random();
             Choice choiceComputer = (Choice)random.Next(1, 4);
-
+            //Collecting the points
+            if (choiceComputer > choicePlayer)
+            {
+                computerScore += 1;
+            }
+            else if (choicePlayer > choiceComputer)
+            {
+                yourScore += 1;
+            }
+            rounds -= 1;
             //Displaying Choices
             Console.WriteLine($"Your Choice is: {choicePlayer}");
             Console.WriteLine($"Computer's Choice is: {choiceComputer} ");
@@ -46,12 +58,14 @@ namespace GameOfNaturalForces
             //Displaying the results
             string result = Winner(choicePlayer, choiceComputer);
             Console.WriteLine(result);
+            Console.WriteLine();
+            Console.WriteLine($"Rounds left {rounds}");
 
             //infinite loop if you want to play again
             while (true)
             {
                 Console.WriteLine();
-                Console.WriteLine("Do you want to play again?");
+                Console.WriteLine("Do you want to continue?");
                 Console.WriteLine();
                 Console.Write("Choose: Yes or No:");
                 string answer = Console.ReadLine();
@@ -61,15 +75,46 @@ namespace GameOfNaturalForces
                     choicePlayerInt = int.Parse(Console.ReadLine());
                     choicePlayer = (Choice)choicePlayerInt;
                     choiceComputer = (Choice)random.Next(1, 4);
+                    //Collecting the points
+                    if (choiceComputer > choicePlayer)
+                    {
+                        computerScore += 1;
+                    }
+                    else if (choicePlayer > choiceComputer)
+                    {
+                        yourScore += 1;
+                    }
+                    rounds -= 1;
                     Console.WriteLine();
                     Console.WriteLine($"Your Choice is: {choicePlayer}");
                     Console.WriteLine($"Computer's Choice is: {choiceComputer} ");
                     result = Winner(choicePlayer, choiceComputer);
                     Console.WriteLine(result);
+                    if (rounds == 0)
+                    {
+                        if (yourScore > computerScore)
+                        {
+                            Console.WriteLine($"You are the winner with {yourScore} points.");
+                            Console.WriteLine();
+                            Console.WriteLine($"Computer lost with {yourScore - computerScore} points.");
+                            Environment.Exit(0);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Computer is the winner with {computerScore} points.");
+                            Console.WriteLine();
+                            Console.WriteLine($"You lost with {computerScore - yourScore} points.");
+                            Environment.Exit(0);
+                        }
+                    }
+                    Console.WriteLine($"Rounds left {rounds}");
+
                 }
                 else if (answer == "No")
                 {
                     Console.WriteLine("That was your final battle!\nThank you for playing!");
+                    Console.WriteLine($"Computer's score is: {computerScore}");
+                    Console.WriteLine($"Your score is: {yourScore}");
                     Environment.Exit(0);
                 }
                 else
@@ -99,7 +144,7 @@ namespace GameOfNaturalForces
             {
                 return "The Computer is drowned, You Win!";
             }
-             else if (player == Choice.Air && (computer == Choice.Fire || computer == Choice.Water))
+            else if (player == Choice.Air && (computer == Choice.Fire || computer == Choice.Water))
             {
                 return "The Computer is blown, You Win!";
             }
@@ -111,4 +156,3 @@ namespace GameOfNaturalForces
         }
     }
 }
-
