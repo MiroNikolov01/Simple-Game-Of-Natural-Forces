@@ -97,13 +97,27 @@ namespace receipt
                     {
                         Console.WriteLine($"You are the winner with {yourScore} points.");
                         Console.WriteLine();
-                        Console.WriteLine($"Computer lost, leaving it with {computerScore} points.");
+                        if (computerScore ==1)
+                        {
+                        Console.WriteLine($"Computer lost, leaving it with {computerScore} point.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Computer lost, leaving it with {computerScore} points.");
+                        }
                     }
                     else if (yourScore < computerScore)
                     {
                         Console.WriteLine($"Computer is the winner with {computerScore} points.");
                         Console.WriteLine();
-                        Console.WriteLine($"You lost leaving you with {yourScore} points.");
+                        if (yourScore == 1)
+                        {
+                        Console.WriteLine($"You lost leaving you with {yourScore} point.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"You lost leaving you with {yourScore} points.");
+                        }
 
                     }
                     else if (yourScore == computerScore)
